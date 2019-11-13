@@ -601,7 +601,57 @@ const christophe = {
         <section id="protocols">
           <h2>Protocoles <span class="stage" title="Stade 1">1</span></h2>
 
-          <!-- FIXME -->
+          <p>Encore mieux que les <em>traits</em>, les mixins ou les modules… Syntaxe temporairement, volontairement verbeuse.</p>
+
+          <table class="layout">
+            <tbody>
+              <tr>
+                <td>
+                  <pre><code class="language-js">
+                      <u>protocol</u> Foldable {
+                        foldr // « Champ requis » (symbole)
+
+                        // « Champ fourni » (ici, accesseur)
+                        get length() { return this[<u>Foldable.foldr</u>]((m) => m + 1, 0) }
+                        …
+                        // Implémentation à la volée pour l’existant !
+                        <u>implemented by</u> Array {
+                          foldr(f, acc) { … }
+                        }
+                      }
+                    </code></pre>
+
+                    <pre><code class="language-js">
+                      // Implémentation a posteriori
+                      Set.prototype[Foldable.foldr] = (f, acc) => { … }
+                      Protocol.implement(Set, Foldable)
+                    </code></pre>
+                  </td>
+                <td>
+                  <pre><code class="language-js">
+                    class NEList {
+                      …
+                      // Implémentation pour la classe en cours
+                      implements protocol Foldable {
+                        foldr(f, acc) { … }
+                      }
+                    }
+                  </code></pre>
+
+                  <pre><code class="language-js">
+                    // Héritage (extension) de protocoles
+                    protocol Mappable extends Foldable { map }
+                    class Collection {
+                      implements protocol Mappable {
+                        foldr(f, acc) { … }
+                        map(f) { … }
+                      }
+                    }
+                  </code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <!-- NO support anywhere for now -->
         </section>
 

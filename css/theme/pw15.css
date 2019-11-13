@@ -269,6 +269,9 @@ b.hl {
   border: 0.1em solid silver;
   border-width: 0.1em 0;
 }
+.reveal table.layout > tbody > tr > td:not(:first-child) {
+  padding-left: 0.5em;
+}
 .reveal table > tbody > tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.9);
 }
