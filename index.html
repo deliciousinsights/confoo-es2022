@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 
-		<title>Alors, quoi de neuf en ES2022 ?</title>
+		<title>So, what’s new in ES2022? • Christophe Porteneuve @ Confoo Montréal 2020</title>
 
-		<meta name="description" content="Alors oui, OK, ES2015 ça déchire, et ES2017–2019 ont amené plein de trucs cool (notamment autour de async/await), mais il y en a encore davantage qui débarque dans les toutes prochaines années, et on peut le plus souvent déjà jouer avec !Christophe vous emmène faire un tour de manège à travers les prochaines fonctionnalités qu’il aime le plus et qui deviendront officielles bientôt… ou peut-être plus tard.">
+		<meta name="description" content="Yes, okay, ES2015 rules, and ES2017/2018 bring about a lot of cool things (most notably async/await), but a ton of cool stuff is expected to land in the next few years, too… and we can play with it already! Christophe takes you through a whirlwind tour of the upcoming features he’s most excited about, due to become official in 2020, 2021… or 2022 ;-)">
 		<meta name="author" content="Christophe Porteneuve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,9 +41,9 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section id="mainTitle">
-					<h1>Alors, quoi de neuf en ES2022 ?</h1>
+					<h1>So, what’s new in ES2022?</h1>
 					<p>
-						Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="https://www.blendwebmix.com/programme/conferences/alors-quoi-de-neuf-en-es2022/">BlendWebMix 2019</a>
+						A presentation by <a href="http://tddsworld.com/">Christophe Porteneuve</a> at <a href="https://confoo.ca/en/yul2020/">Confoo Montréal 2020</a>
 					</p>
 				</section>
 
@@ -55,7 +55,7 @@ const christophe = {
   family: { wife: 'Élodie', sons: ['Maxence', 'Elliott'] },
   city: 'Paris, FR',
   company: 'Delicious Insights',
-  trainings: ['ES Total', 'Web Apps Modernes', 'Node.js', 'Git Total', 'Webpack'],
+  trainings: ['360° ES', 'Modern Web Apps', 'Node.js', '360° Git', 'Webpack'],
   webDevSince: 1995,
   mightBeKnownFor: [
     'Prototype.js',
@@ -70,76 +70,77 @@ const christophe = {
 
         <section id="tc39">
           <h1>ES2022 ?!</h1>
-          <h3>ECMA, TC39, ECMAScript et JavaScript</h3>
+          <h3>ECMA, TC39, ECMAScript and JavaScript</h3>
         </section>
 
         <section id="ecma">
-          <h2>ECMA et le TC39</h2>
+          <h2>ECMA and TC39</h2>
 
           <p>
-            L’ECMA est un organisme international de standardisation<br/>
-            (comme l'ISO, l’IETF, le W3C ou le WHATWG, par exemple)
+            ECMA is an international standards body<br/>
+            (like ISO, IETF, W3C or WHATWG, to name a few)
           </p>
-          <p>ES = ECMAScript. Le standard officiel pour JavaScript*</p>
+          <p>ES = ECMAScript.   The official standard for JavaScript*</p>
           <p>
-            TC39 = Technical Committee 39. S’occupe de plusieurs standards :<br/>
+            TC39 = Technical Committee 39. Caretaker of several standards:<br/>
             ECMAScript (ECMA-262), <code>Intl</code> (ECMA-402), JSON (ECMA-404), etc.
           </p>
 
-          <footer>* Qui, au passage, est une marque déposée (pour les U.S.) de Oracle Corp.  Ouais, je sais 🤢</footer>
+          <footer>* Which happens to be, in the U.S., a trademark of Oracle Corp. Yeah, I know 🤢</footer>
         </section>
 
         <section id="tc39-process-summary">
-          <h2>Le processus d’évolution du langage au TC39</h2>
+          <h2>The way the language evolves at TC39</h2>
 
-          <p>Réunions tous les 2 mois, surtout aux U.S.  Sortie <strong>annuelle</strong> en juin.</p>
-          <p>« ES6 » = ES2015, « ES7 » = ES2016, et on dit désormais ES2019, etc.</p>
-          <p>Tout ça est <a href="https://github.com/tc39">transparent et public</a>.</p>
+          <p>Meetings every two months, mostly in the U.S. <strong>Yearly</strong> release in June.</p>
+          <p>“ES6” = ES2015, “ES7” = ES2016, and now we say ES2020, etc.</p>
+          <p>This is all <a href="https://github.com/tc39">transparent and public</a>.</p>
         </section>
 
         <section id="tc39-process-stages">
-          <h2>Les <a href="https://tc39.github.io/process-document/">5 stades</a> du processus au TC39</h2>
+          <h2>The <a href="https://tc39.github.io/process-document/">5 stages</a> of the TC39 process</h2>
 
           <table class="condensed">
             <thead>
-              <tr><th>Stade</th><th>Description</th></tr>
+              <tr><th>Stage</th><th>Description</th></tr>
             </thead>
             <tbody>
               <tr>
                 <th>0 Strawman</th>
-                <td>« Hey ça serait cool d’avoir un opérateur licorne (🦄) pour… »</td>
+                <td>“Say, it’d be nifty to get a Unicorn (🦄) operator to…”</td>
               </tr>
               <tr class="fragment">
                 <th>1 Proposal</th>
-                <td>Un membre du TC39 devient « champion » d’une propale.  L’aspect général de l’API est défini, et la plupart des <em>cross-cutting concerns</em> sont traités.</td>
+                <td>A TC39 member becomes the proposal’s “champion.”  The general shape of the API is defined, and most of the <em>cross-cutting concerns</em> are handled.</td>
               </tr>
               <tr class="fragment">
                 <th>2 Draft</th>
-                <td>Le texte initial de la spec est fait, et couvre tous les aspects critiques et la sémantique technique.</td>
+                <td>The initial spec text is done, and covers all critical aspects and the tech semantics.</td>
               </tr>
               <tr class="fragment">
                 <th>3 Candidate</th>
-                <td>La spec est complète, vérifiée par qui de droit et approuvée.  L’API est finalisée, aucune question ne reste en suspens.</td>
+                <td>The spec is complete, duly reviewed and approved.  The API is finalized and no stone is left unturned.</td>
               </tr>
               <tr class="fragment">
                 <th>4 Finished</th>
-                <td>Couverture de tests Test262 intégrale, 2+ implémentations livrées (en général v8 et SpiderMonkey), retours d’expérience réelle significatifs, imprimateur du Spec Editor.  Fera alors partie du prochain gel fonctionnel (entre janvier et mars), et donc la version annuelle concernée.</td>
+                <td>
+                  Full Test262 coverage, 2+ shipped implementations (usually v8 and Spidermonkey), significant real-world feedback, and imprimatur by the Spec Editor.  Will then be part of the next feature freeze (January-March), hence ship in the associated yearly release.</td>
               </tr>
             </tbody>
           </table>
         </section>
 
         <section id="es2018">
-          <h1>Rappels rapides : ES2018</h1>
+          <h1>Quick recap: ES2018</h1>
         </section>
 
         <section id="es2018-rest-spread-props">
-          <h2>ES2018 : Rest/Spread sur objets</h2>
+          <h2>ES2018: Rest/Spread properties</h2>
 
           <pre><code class="language-js">
             class OldSchoolHOC extends Component {
               render() {
-                // Rest sur objet
+                // Rest on properties
                 const { component: Component, <u>...props</u> } = this.props
 
                 return (
@@ -151,7 +152,7 @@ const christophe = {
           </code></pre>
 
           <pre class="fragment"><code class="language-js">
-            // Spread sur objets
+            // Spread on properties
             const DEFAULTS = { first: 'John', last: 'Doe' }
             const person = { last: 'Smith', age: 42 }
             const result = { <u>...DEFAULTS</u>, <u>...person</u>, age: 36 }
@@ -160,15 +161,15 @@ const christophe = {
         </section>
 
         <section id="es2018-regexp">
-          <h2>ES2018 : la fête aux RegExp</h2>
+          <h2>ES2018: RegExp galore</h2>
 
           <pre><code class="language-js">
-            // Drapeau “dotAll” / “singleLine”
+            // Flag: “dotAll” / “singleLine”
             '&lt;p>line 1\nline 2\nline 3&lt;/p>'.match(/&lt;p>.*&lt;\/p>/<u>s</u>) // => '&lt;p>…&lt;/p>'
           </code></pre>
 
           <pre class="fragment"><code class="language-js">
-            // Captures nommées
+            // Named captured groups
             const ATTR = /\s+(<u>?&lt;name></u>\w+)=(<u>?&lt;quote></u>['"])(<u>?&lt;value></u>.+?)<u>\k&lt;quote></u>/
             const { name, quote, value } = '&lt;p class="foo">&lt;/p>'.match(ATTR)<u>.groups</u>
             // => name === 'class', quote === '"', value === 'foo'
@@ -178,22 +179,22 @@ const christophe = {
           </code></pre>
 
           <pre class="fragment"><code class="language-js">
-            // Lookbehinds (ici, positif)
+            // Lookbehinds (here a positive one)
             '$10.53'.match(/(<u>?&lt;=</u>\$)\d+(?:\.\d+)?/) // => ['10:53', …]
           </code></pre>
 
           <pre class="fragment"><code class="language-js">
             // Unicode Property Escapes
-            'Nom de Ζεύς !'.match(/<u>\p{Script=Greek}</u>+/<u>u</u>)[0] // => 'Ζεύς'
+            'By Ζεύς!'.match(/<u>\p{Script=Greek}</u>+/<u>u</u>)[0] // => 'Ζεύς'
           </code></pre>
         </section>
 
         <section id="es2018-finally">
-          <h2>ES2018 : <code>Promise</code>#<code>finally</code></h2>
+          <h2>ES2018: <code>Promise</code>#<code>finally</code></h2>
 
           <p>
-            Est invoquée quel que soit l’état de la chaîne de promesses (accomplie ou rejetée), et n’altère pas cet état.<br/>
-            Donc tout à fait similaire au bloc <code>finally</code> d’un <code>try</code>.
+            Invoked regardless of the promise chain’s outcome (fulfilled or rejected), and does not alter that state.<br/>
+            So very much like the <code>finally</code> block for a <code>try</code>.
           </p>
 
           <pre><code class="language-js">
@@ -207,14 +208,14 @@ const christophe = {
         </section>
 
         <section id="es2018-async-iter">
-          <h2>ES2018 : itération asynchrone</h2>
+          <h2>ES2018: asynchronous iteration</h2>
 
           <p>
-            Déclinaison basée promesses du protocole d’itération synchrone d’ES2015.<br/>
-            Au lieu d’implémenter <code>Symbol.iterator</code>, on implémente <code>Symbol.asyncIterator</code>.
+            A promise-based variation of the synchronous iteration from ES2015.<br/>
+            Instead of implementing <code>Symbol.iterator</code>, we implement <code>Symbol.asyncIterator</code>.
           </p>
-          <p>Consommable facilement avec le nouveau <code>for await (… of …)</code></p>
-          <p>Les flux Node (10+) et WHATWG (ex. Fetch) sont des itérables asynchrones.</p>
+          <p>Easily consumable using the new <code>for await (… of …)</code></p>
+          <p>Node (10+) and WHATWG streams (e.g. Fetch) are asynchronous iterables.</p>
 
           <pre><code class="language-js">
             async function echoLines(filename) {
@@ -227,13 +228,13 @@ const christophe = {
         </section>
 
         <section id="es2019">
-          <h1>Rappels rapides : ES2019</h1>
+          <h1>Quick recap: ES2019</h1>
         </section>
 
         <section id="es2019-optional-catch-binding">
-          <h2>ES0219 : identifiant optionnel dans <code>catch</code></h2>
+          <h2>ES0219: optional <code>catch</code> binding</h2>
 
-          <p>Parfois on n’a pas besoin de l’erreur…</p>
+          <p>Sometimes you don’t need the error…</p>
 
           <pre><code class="language-js">
             function safeRequire(pathspec) {
@@ -247,40 +248,39 @@ const christophe = {
         </section>
 
         <section id="es2019-fromentries">
-          <h2>ES2019 : <code>Object.fromEntries</code></h2>
+          <h2>ES2019: <code>Object.fromEntries</code></h2>
 
-          <p>La réciproque de <code>Object.entries</code> : construit un objet à partir de ses entrées.</p>
+          <p>The inverse of <code>Object.entries</code>: builds an object from its key/value pairs.</p>
 
           <pre><code class="language-js">
             function pick(src, ...propertyNames) {
               return <u>Object.fromEntries</u>(
-                Object.entries(src)
-                  .filter(([name]) => propertyNames.includes(name))
+                Object.entries(src).filter(([name]) => propertyNames.includes(name))
               )
             }
           </code></pre>
         </section>
 
         <section id="es2019-trim-start-end">
-          <h2>ES2019 : <code>String</code>#<code>trimStart/End</code></h2>
+          <h2>ES2019: <code>String</code>#<code>trimStart/End</code></h2>
 
-          <p>Complément le <code>trim()</code> d’ES2015 en permettant de choisir une seule extrémité de la chaîne.</p>
+          <p>Finer-grained variations of ES2015’s <code>trim()</code> that let us pick an extremity of the string.</p>
 
           <pre><code class="language-js">
-            const spaceyText = '\n\t  bonjour monde !\u00a0\n\n'
+            const spaceyText = '\n\t  hello world!\u00a0\n\n'
 
             spaceyText.<u>trimStart</u>()
-            // => 'bonjour monde !\u00a0!\n\n'
+            // => 'hello world!\u00a0!\n\n'
 
             spaceyText.<u>trimEnd</u>()
-            // => '\n\t  bonjour monde !'
+            // => '\n\t  hello world!'
           </code></pre>
         </section>
 
         <section id="es2019-flat-flatmap">
-          <h2>ES2019 : <code>Array</code>#<code>flat/flatMap</code></h2>
+          <h2>ES2019: <code>Array</code>#<code>flat/flatMap</code></h2>
 
-          <p><code>flat(depth = 1)</code> « aplatit » des tableaux imbriqués à la profondeur indiquée.</p>
+          <p><code>flat(depth = 1)</code> “flattens” nested arrays up to a given depth.</p>
 
           <pre><code class="language-js">
             const data = ['Alice', ['Bob', 'Claire'], ['David', ['Erin', 'Fred'], 'Georges']]
@@ -290,32 +290,32 @@ const christophe = {
           </code></pre>
 
           <div class="fragment">
-            <p><code>flatMap(mapper<i>[, thisArg]</i>)</code> applique un <code>map</code> en aplatissant à la volée le résultat en profondeur 1.</p>
+            <p><code>flatMap(mapper<i>[, thisArg]</i>)</code> runs a <code>map</code> whilst flattening the result on the fly, at depth 1.</p>
 
             <pre><code class="language-js">
-              const data = ['Salut 😘 ça roule ? 😁', 'HBD 🎂 ma poule 🐔']
+              const data = ['Hey 😘 wassup? 😁', 'HBD 🎂 sweetheart 💖']
               const extractEmojis = (text) => text.match(/\p{Emoji}/gu)
 
-              data.map(extractEmojis)     // => [['😘', '😁'], ['🎂', '🐔']]
-              data.<u>flatMap</u>(extractEmojis) // => ['😘', '😁', '🎂', '🐔']
+              data.map(extractEmojis)     // => [['😘', '😁'], ['🎂', '💖']]
+              data.<u>flatMap</u>(extractEmojis) // => ['😘', '😁', '🎂', '💖']
             </code></pre>
           </div>
         </section>
 
         <section id="es2020">
-          <h1>ES2020 : ce qui est sûr…</h1>
+          <h1>ES2020: what’s guaranteed…</h1>
         </section>
 
         <section id="es2020-matchAll">
-          <h2>ES2020 : <code>String</code>#<code>matchAll</code></h2>
+          <h2>ES2020: <code>String</code>#<code>matchAll</code></h2>
 
-          <p>Récupère <strong>toutes les correspondances de groupe</strong> pour une regex <em>sticky</em> ou globale.</p>
+          <p>Grabs <strong>all group matches</strong> for a <em>sticky</em> or global regex.</p>
 
           <pre><code class="language-js">
-            const text = 'Appelez-moi au tel:0983450176 ou sms:478-555-1234'
+            const text = 'Get in touch at tel:0983450176 or sms:478-555-1234'
 
-            text.<u>match</u>(/<u>(</u>?<protocol>[a-z]{3}<u>)</u>:<u>(</u>?<number>[\d-]+<u>)</u>/<u>g</u>)
-            // => ['tel:0983450176', 'sms:478-555-1234'] -- 😞 OÙ SONT MES GROUPES ?!
+            text.<u>match</u>(/<u>(</u>?&lt;protocol>[a-z]{3}<u>)</u>:<u>(</u>?&lt;number>[\d-]+<u>)</u>/<u>g</u>)
+            // => ['tel:0983450176', 'sms:478-555-1234'] -- 😞 WHERE THEM GROUPS AT?!
           </code></pre>
 
           <pre class="fragment"><code class="language-js">
@@ -327,15 +327,15 @@ const christophe = {
             Array.from(text.<u>matchAll</u>(/(?&lt;protocol>[a-z]{3}):(?&lt;number>[\d-]+)/g)).map((mr) => mr.groups)
             // => [{ number: '0983450176', protocol: 'tel' }, { number: '478-555-1234', protocol: 'sms' }]
           </code></pre>
-          <!-- Babel 7, Cr80 = 2/2, FF68+ / Saf = 1/2 -->
+          <!-- Babel 7, Cr80 = 2/2, FF68+ / Saf = 1/2, FIXME UPDATE (+Edge) -->
         </section>
 
         <section id="es2020-dynamic-import">
-          <h2>ES2020 : <code>import(…)</code></h2>
+          <h2>ES2020: <code>import(…)</code></h2>
 
           <p>
-            Import de module ES (“ESM”) dynamique, basé promesse<br/>
-            (incidemment, cœur du <em>code splitting</em> automatique par Webpack)
+            Dynamically imports ES Modules (“ESM”), using promises<br/>
+            (incidentally, this is the heart of Webpack’s automatic code splitting)
           </p>
 
           <pre><code class="language-js">
@@ -354,13 +354,12 @@ const christophe = {
               LocaleManager.registerLocale(locale, { activate: true })
             }
           </code></pre>
-          <!--  -->
         </section>
 
         <section id="es2020-bigint">
-          <h2>ES2020 : <code>BigInt</code></h2>
+          <h2>ES2020: <code>BigInt</code></h2>
 
-          <p>Nombres entiers en « précision aléatoire » (infinis) (> 2<sup>53</sup>)</p>
+          <p>“Arbitrary precision” (infinite) integers (> 2<sup>53</sup>)</p>
 
           <pre><code class="language-js">
             const theBiggestInt = 9007199254740991n
@@ -377,15 +376,15 @@ const christophe = {
             [42n === 42, 42n == 42]
             // => [false, true]
           </code></pre>
-          <!-- FF68, Cr77, Node 10 -->
+          <!-- FF68, Cr77, Node 10, FIXME UPDATE -->
         </section>
 
         <section id="es2020-allsettled">
-          <h2>ES2020 : <code>Promise.allSettled</code></h2>
+          <h2>ES2020: <code>Promise.allSettled</code></h2>
 
-          <p>3e combinateur de promesses (avec <code>all</code> et <code>race</code>).  <code>any</code> arrive bientôt…</p>
+          <p>3rd promise combinator (with <code>all</code> and <code>race</code>).  <code>any</code> is coming soon…</p>
 
-          <p>Le principe : on ne court-circuite pas au premier rejet / établissement, on récupère tous les établissements pour analyse.</p>
+          <p>The idea: doesn’t short-circuit, be it on the first rejection or fulfillment: we get all settlements for analysis.</p>
 
           <pre><code class="language-js">
             await Promise.allSettled([wait(100), wait(50), throwAfter(75)])
@@ -395,126 +394,127 @@ const christophe = {
             //   { status: 'rejected', reason: Error: 75 at… }
             // ]
           </code></pre>
-          <!-- Babel 7 / core-js, FF71, Cr77, Saf 13, Node 12… -->
+          <!-- Babel 7 / core-js, FF71, Cr77, Saf 13, Node 12… FIXME UPDATE -->
         </section>
 
         <section id="es2020-global">
-          <h2>ES2020 : <code>globalThis</code></h2>
+          <h2>ES2020: <code>globalThis</code></h2>
 
           <p>
-            Enfin une standardisation de « l’objet global », quel que soit l’environnement !<br/>
-            (page web, frame, worker, processus, Node…)
+            Finally a standardization of the “global object,” regardless of the environment!<br/>
+            (web page, frame, worker, process, Node…)
           </p>
 
-          <p>Remplace, suivant le contexte : <code>window</code>, <code>self</code>, <code>global</code> et parfois <code>this</code> (sans parler des cas à la marge).</p>
+          <p>Depending on context, aliases to: <code>window</code>, <code>self</code>, <code>global</code> and sometimes <code>this</code> (not to mention edge cases).</p>
 
-          <!-- Babel 7, FF68, Cr77, Saf 12, Node 12… -->
+          <!-- Babel 7, FF68, Cr77, Saf 12, Node 12… FIXME UPDATE -->
         </section>
 
+        <!-- FIXME UPDATE: NEW STAGE-4 STUFF NOW? -->
+
         <section>
-          <h1>🔮 Et l’avenir alors ? 🔮</h1>
+          <h1>🔮 So what’s coming next? 🔮</h1>
         </section>
 
         <section id="numerical-separators">
-          <h2>Séparateurs numériques <span class="stage" title="Stade 3">3</span></h2>
+          <h2>Numerical separators <span class="stage" title="Stade 3">3</span></h2>
 
-          <p>La lisibilité c’est le bien.</p>
+          <p>It’s nicer when you can read it.</p>
 
           <pre><code class="language-js">
-            const BILLION = 1_000_000_000 // On sait tout de suite…
+            const BILLION = 1_000_000_000 // You immediately know
             const FEE_CENTS = 20_00       // Cents / centiles
-            const RATE = 2_90             // Idem
+            const RATE = 2_90             // Ditto
             const QUADS = 0b0010_1010     // “Quads” (4 bits)
-            const TX_VALUE = 1_234_5418   // Virgule fixe (4), financier
-            const WORDS = 0xDEAD_C0DE     // “Words” (2 octets)
+            const TX_VALUE = 1_234_5418   // Fixed point (4), financial
+            const WORDS = 0xDEAD_C0DE     // “Words” (2 bytes)
           </code></pre>
-          <!-- Babel 7, FF70, Cr75, Saf13, Node 12.5 -->
+          <!-- Babel 7, FF70, Cr75, Saf13, Node 12.5, FIXME UPDATE -->
         </section>
 
         <section id="optional-chaining-nullish-coalescing">
-          <h2>Chaînage optionnel et <em>Nullish coalescing</em> <span class="stage" title="Stade 3">3</span></h2>
+          <h2>Optional chaining and <em>Nullish coalescing</em> <span class="stage" title="Stade 3">3</span></h2>
 
-          <p>Pour faire des chaînes de propriétés résilientes mais pas rébarbatives.</p>
+          <p>To make resilient yet readable property chains.</p>
 
           <pre><code class="language-js">
-            // AVANT
+            // BEFORE
             user != null && user.names != null && user.names.first
             user != null && user.signUp != null && user.signUp()
             user != null && user.hobbies != null && user.hobbies[0]
 
-            // APRÈS
+            // AFTER
             user<u>?.</u>names<u>?.</u>first
             user<u>?.</u>signup<u>?.()</u>
             user<u>?.</u>hobbies<u>?.[0]</u>
           </code></pre>
 
           <div class="fragment">
-            <p>Pour mieux faire des valeurs par défaut.</p>
+            <p>To better handle default values.</p>
 
             <pre><code class="language-js">
-              // 50 seulement si `options.duration == null`
+              // 50 only if `options.duration == null`
               const duration = options.duration <u>??</u> 50
               const easing = options.advanced?.easing <u>??</u> 'inOutCubic'
             </code></pre>
           </div>
-          <!-- Babel 7, Cr78/flag, Saf/flag, Node 13/flag -->
+          <!-- Babel 7, Cr78/flag, Saf/flag, Node 13/flag, FIXME UPDATE -->
         </section>
 
         <section id="top-level-await">
-          <h2><code>await</code> à la racine <span class="stage" title="Stade 3">3</span></h2>
+          <h2>Top-level <code>await</code> <span class="stage" title="Stade 3">3</span></h2>
 
-          <p>Jusqu’ici, seulement dans une fonction <code>async</code>…</p>
-          <p>Mais pratique pour de l’initialisation de module, etc.</p>
+          <p>Until now, we could only <code>await</code> in an <code>async</code> function…</p>
+          <p>But this can be super-handy for module initialization, etc.</p>
 
           <pre><code class="language-js">
             import { engine, process } from './some-module.mjs'
 
-            // Tant qu’à faire on parallélise les promesses…
+            // Might as well run these in parallel…
             const engineModule = import(`./engines/${engine}.mjs`)
             const data = fetch(url)
 
-            // Et hop !
+            // And presto!
             export const output = process((<u>await</u> engineModule).default, <u>await</u> data)
           </code></pre>
 
-          <p>Déjà dans les REPL de Node, Chromium DevTools, Safari Web Inspector.</p>
+          <p>Already in Node REPL, Chromium DevTools console, Safari Web Inspector console.</p>
 
-          <!-- v8/flag, Webpack 5 experimental -->
+          <!-- v8/flag, Webpack 5 experimental, FIXME UPDATE -->
         </section>
 
         <section id="class-novelties">
-          <h2>Nouveautés sur classes <span class="stage" title="Stade 3">3</span></h2>
+          <h2>Class novelties <span class="stage" title="Stade 3">3</span></h2>
 
-          <p>Méthodes privées (dont accesseurs), champs d’instance et statiques (publics et privés)</p>
+          <p>Private methods (incl. accessors), static and instance fields (public / private)</p>
 
           <pre><code class="language-js">
             class APIClient extends Component {
-              // Champ privé d’instance
+              // Private instance field
               <u>#oauthToken =</u> null
-              // Champ public static
+              // Public static field
               <u>static propTypes</u> = {
                 authServer: URLPropType.isRequired,
               }
-              // Champ public d’instance
+              // Public instance field
               <u>state =</u> { authenticated: this.#oauthToken != null, loggedIn: false }
-
-              // Méthode privée d’instance
+              // Private instance method
               <u>#shareAuthWith</u>(recipient) {
-                // Exige que `recipient` soit un `APIClient`
+                // Demands that `recipient` be an `APIClient`
                 recipient.#oauthToken = this.#oauthToken
               }
             }
           </code></pre>
 
-          <!-- Priv: Babel, v8/flag, JSC/review, XS, QuickJS -->
-          <!-- IC: Babel, Node 12 / v8/7.2-7.4, Fx69, XS, QuickJS -->
-          <!-- Stat: Babel, v8/ongoing, JSC/review, XS, QuickJS -->
+          <!-- Priv: Babel, v8/flag, JSC/review, XS, QuickJS, FIXME UPDATE -->
+          <!-- IC: Babel, Node 12 / v8/7.2-7.4, Fx69, XS, QuickJS, FIXME UPDATE -->
+          <!-- Stat: Babel, v8/ongoing, JSC/review, XS, QuickJS, FIXME UPDATE -->
         </section>
 
         <section id="decorators">
-          <h2>Décorateurs <span class="stage" title="Stade 2">2</span></h2>
+          <h2>Decorators <span class="stage" title="Stade 2">2</span></h2>
 
-          <p>Pour l’AOP c’est tout de suite plus pratique… ES fournit la plomberie, l’écosystème les décorateurs opérationnels.</p>
+          <p>So much nicer for AOP…  ES provides the plumbing and the ecosystem provides operational decorators.</p>
 
           <pre><code class="language-js">
             class SuperWidget extends Component {
@@ -538,30 +538,30 @@ const christophe = {
         <section id="temporal">
           <h2><code>Temporal</code> <span class="stage" title="Stade 2">2</span></h2>
 
-          <p>Vise à remplacer (en mieux) Moment, Luxon, date-fns, etc.</p>
-          <p>Immutable, précis à la nanoseconde, toutes les TZ, distinction absolu/local, explicite…</p>
-          <p>Super complément à <code>Intl</code> et ses fonctions de formatage.</p>
-          <p>L’API est encore trop changeante, et la doc/spec trop aride, pour que je vous montre des exemples utiles ici.</p>
-          <p><strong>Watch this space!™</strong></p>
+          <p>Aims to (beneficially) replace Moment, Luxon, data-fns, etc.</p>
+          <p>Immutable, nanosecond-precise, has all TZ, distinguishes absolute vs. local, explicit…</p>
+          <p>Great complement to <code>Intl</code> and its formatting functions.</p>
+
+          <!-- FIXME: COOL EXAMPLES FROM MAGGIE'S TALK! -->
         </section>
 
         <section id="functional-programming">
-          <h2>Programmation fonctionnelle <span class="stage" title="Stade 1">1</span></h2>
+          <h2>Moar functional programming <span class="stage" title="Stade 1">1</span></h2>
 
-          <p>Opérateur <em>pipeline</em> et application partielle 😍</p>
+          <p>Pipeline operator + partial application = 😍</p>
 
           <table class="layout">
             <tbody>
               <tr>
                 <td width="50%">
                   <pre><code class="language-js">
-                      // Particulièrement cool si on utilise des itérateurs
-                      // (lazy donc efficace) !
-                      const result = numbers
-                        <u>|></u> filter(<u>?</u>, (v) => v % 2 === 0)
-                        <u>|></u> map(<u>?</u>, (v) => v + 1)
-                        <u>|></u> slice(<u>?</u>, 0, 3)
-                        <u>|></u> Array.from
+                    // Particularly cool when we use iterators
+                    // (lazy hence efficient)!
+                    const result = numbers
+                      <u>|></u> filter(<u>?</u>, (v) => v % 2 === 0)
+                      <u>|></u> map(<u>?</u>, (v) => v + 1)
+                      <u>|></u> slice(<u>?</u>, 0, 3)
+                      <u>|></u> Array.from
                     </code></pre>
                   </td>
                 <td>
@@ -580,7 +580,7 @@ const christophe = {
           </table>
 
           <div class="fragment">
-            <p>Pattern matching ! 😍</p>
+            <p>Pattern matching! 😍</p>
 
             <pre><code class="language-js">
               const getLength = (vector) => <u>case (vector) {</u>
@@ -599,39 +599,39 @@ const christophe = {
         </section>
 
         <section id="protocols">
-          <h2>Protocoles <span class="stage" title="Stade 1">1</span></h2>
+          <h2>Protocols <span class="stage" title="Stade 1">1</span></h2>
 
-          <p>Encore mieux que les <em>traits</em>, les mixins ou les modules… Syntaxe temporairement, volontairement verbeuse.</p>
+          <p>This is even better than traits, mixins or modules…  The syntax is temporarily—and intentionally—verbose.</p>
 
           <table class="layout">
             <tbody>
               <tr>
                 <td>
                   <pre><code class="language-js">
-                      <u>protocol</u> Foldable {
-                        foldr // « Champ requis » (symbole)
+                    <u>protocol</u> Foldable {
+                      foldr // “Required field” (symbol)
 
-                        // « Champ fourni » (ici, accesseur)
-                        get length() { return this[<u>Foldable.foldr</u>]((m) => m + 1, 0) }
-                        …
-                        // Implémentation à la volée pour l’existant !
-                        <u>implemented by</u> Array {
-                          foldr(f, acc) { … }
-                        }
+                      // “Provided field” (here an accessor)
+                      get length() { return this[<u>Foldable.foldr</u>]((m) => m + 1, 0) }
+                      …
+                      // On-the-fly implementation for existing host types!
+                      <u>implemented by</u> Array {
+                        foldr(f, acc) { … }
                       }
-                    </code></pre>
+                    }
+                  </code></pre>
 
-                    <pre><code class="language-js">
-                      // Implémentation a posteriori
-                      Set.prototype[Foldable.foldr] = (f, acc) => { … }
-                      Protocol.implement(Set, Foldable)
-                    </code></pre>
-                  </td>
+                  <pre><code class="language-js">
+                    // Later implementation
+                    Set.prototype[Foldable.foldr] = (f, acc) => { … }
+                    Protocol.implement(Set, Foldable)
+                  </code></pre>
+                </td>
                 <td>
                   <pre><code class="language-js">
                     class NEList {
                       …
-                      // Implémentation pour la classe en cours
+                      // Implementation for the current class
                       implements protocol Foldable {
                         foldr(f, acc) { … }
                       }
@@ -639,7 +639,7 @@ const christophe = {
                   </code></pre>
 
                   <pre><code class="language-js">
-                    // Héritage (extension) de protocoles
+                    // Inheriting (extending) protocols
                     protocol Mappable extends Foldable { map }
                     class Collection {
                       implements protocol Mappable {
@@ -656,33 +656,37 @@ const christophe = {
         </section>
 
         <section id="screencasts">
-          <h2>Envie de cours vidéo ?</h2>
+          <h2>Do you like screencasts?</h2>
 
-          <p><a href="https://delicious-insights.com">Delicious Insights</a> fait des <strong>cours vidéo</strong> de dingue, notamment sur JS et Git.</p>
+          <p>We publish about one new video course every month, mostly around Git and JS.</p>
 
-          <p>Les auditeur·rice·s Blend Web Mix 2019 ont droit à un de nos cours payants… <strong>gratuitement !</strong></p>
+          <br>
+          <h3><a href="https://screencasts.delicious-insights.com/">screencasts.delicious-insights.com</a></h3>
+          <br>
 
-          <p>
-            Catalogue : <a href="https://bit.ly/di-cours-video">bit.ly/di-cours-video</a> —
-            <strong>Demande le tien :</strong> <a href="https://bit.ly/blend-cours-video">bit.ly/blend-cours-video</a>
-          </p>
+          <p>Or if that’s easier for you:</p>
 
-          <p>(On fait aussi des <strong><a href="https://delicious-insights.com/fr/formations/">pures formations de ouf</a></strong>, notamment <a href="https://delicious-insights.com/fr/formations/es-total/">ES Total</a>)</p>
+          <br>
+
+          <h3><a href="https://bit.ly/confoo-screencasts">bit.ly/confoo-screencasts</a></h3>
         </section>
 
         <section id="thank-you">
-          <h1>Merci !</h1>
+          <h1>Thank you!</h1>
           <h3>Always bet on JS.</h3>
           <br>
           <p>Christophe Porteneuve</p>
           <p><a href="https://twitter.com/porteneuve">@porteneuve</a></p>
 
           <p class="breathing">
-            Les slides sont sur <a href="https://bit.ly/blend-es2022">bit.ly/blend-es2022</a><br/>
+            Slides are at <a href="https://bit.ly/confoo-es-proxies">bit.ly/confoo-es-proxies</a><br/>
           </p>
+
+          <footer>h/t to Nicholas C. Zakas’ wonderful <a href="https://leanpub.com/understandinges6/">Understanding ES6</a> and Axel Rauschmayer’s excellent <a href="https://exploringjs.com/es6/">Exploring ES6</a>,<br/>
+            which both have great chapters on ES proxies, and provided the basis for several examples I used.</footer>
         </section>
 
-			</pre>
+			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
