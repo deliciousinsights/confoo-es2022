@@ -327,7 +327,7 @@ const christophe = {
             Array.from(text.<u>matchAll</u>(/(?&lt;protocol>[a-z]{3}):(?&lt;number>[\d-]+)/g)).map((mr) => mr.groups)
             // => [{ number: '0983450176', protocol: 'tel' }, { number: '478-555-1234', protocol: 'sms' }]
           </code></pre>
-          <!-- Babel 7, Cr80 = 2/2, FF68+ / Saf = 1/2, FIXME UPDATE (+Edge) -->
+          <!-- Babel 7, Cr80 / FF73 / Saf 13.1 / Edge 80 = 2/2 -->
         </section>
 
         <section id="es2020-dynamic-import">
@@ -376,13 +376,13 @@ const christophe = {
             [42n === 42, 42n == 42]
             // => [false, true]
           </code></pre>
-          <!-- FF68, Cr77, Node 10, FIXME UPDATE -->
+          <!-- FF68, Cr77, Node 10, Edge 79 -->
         </section>
 
         <section id="es2020-allsettled">
           <h2>ES2020: <code>Promise.allSettled</code></h2>
 
-          <p>3rd promise combinator (with <code>all</code> and <code>race</code>).  <code>any</code> is coming soon…</p>
+          <p>3rd promise combinator (with <code>all</code> and <code>race</code>).  <code>any</code> is at stage 3.</p>
 
           <p>The idea: doesn’t short-circuit, be it on the first rejection or fulfillment: we get all settlements for analysis.</p>
 
@@ -394,7 +394,7 @@ const christophe = {
             //   { status: 'rejected', reason: Error: 75 at… }
             // ]
           </code></pre>
-          <!-- Babel 7 / core-js, FF71, Cr77, Saf 13, Node 12… FIXME UPDATE -->
+          <!-- Babel 7 / core-js, FF71, Cr77, Saf 13, Node 12, Edge 79 -->
         </section>
 
         <section id="es2020-global">
@@ -407,33 +407,11 @@ const christophe = {
 
           <p>Depending on context, aliases to: <code>window</code>, <code>self</code>, <code>global</code> and sometimes <code>this</code> (not to mention edge cases).</p>
 
-          <!-- Babel 7, FF68, Cr77, Saf 12, Node 12… FIXME UPDATE -->
-        </section>
-
-        <!-- FIXME UPDATE: NEW STAGE-4 STUFF NOW? -->
-
-        <section>
-          <h1>🔮 So what’s coming next? 🔮</h1>
-        </section>
-
-        <section id="numerical-separators">
-          <h2>Numerical separators <span class="stage" title="Stade 3">3</span></h2>
-
-          <p>It’s nicer when you can read it.</p>
-
-          <pre><code class="language-js">
-            const BILLION = 1_000_000_000 // You immediately know
-            const FEE_CENTS = 20_00       // Cents / centiles
-            const RATE = 2_90             // Ditto
-            const QUADS = 0b0010_1010     // “Quads” (4 bits)
-            const TX_VALUE = 1_234_5418   // Fixed point (4), financial
-            const WORDS = 0xDEAD_C0DE     // “Words” (2 bytes)
-          </code></pre>
-          <!-- Babel 7, FF70, Cr75, Saf13, Node 12.5, FIXME UPDATE -->
+          <!-- Babel 7, FF68, Cr77, Saf 12, Edge 79, Node 12 -->
         </section>
 
         <section id="optional-chaining-nullish-coalescing">
-          <h2>Optional chaining and <em>Nullish coalescing</em> <span class="stage" title="Stade 3">3</span></h2>
+          <h2>ES2020: Optional chaining and <em>Nullish coalescing</em> <span class="stage" title="Stade 3">3</span></h2>
 
           <p>To make resilient yet readable property chains.</p>
 
@@ -458,7 +436,27 @@ const christophe = {
               const easing = options.advanced?.easing <u>??</u> 'inOutCubic'
             </code></pre>
           </div>
-          <!-- Babel 7, Cr78/flag, Saf/flag, Node 13/flag, FIXME UPDATE -->
+          <!-- Babel 7, FF72 (OC) and 74 (NC), Cr80, Edge 80, Saf 13.1, Node 13/flag -->
+        </section>
+
+        <section>
+          <h1>🔮 So what’s coming next? 🔮</h1>
+        </section>
+
+        <section id="numerical-separators">
+          <h2>Numeric separators <span class="stage" title="Stade 3">3</span></h2>
+
+          <p>It’s nicer when you can read it.</p>
+
+          <pre><code class="language-js">
+            const BILLION = 1_000_000_000 // You immediately know
+            const FEE_CENTS = 20_00       // Cents / centiles
+            const RATE = 2_90             // Ditto
+            const QUADS = 0b0010_1010     // “Quads” (4 bits)
+            const TX_VALUE = 1_234_5418   // Fixed point (4), financial
+            const WORDS = 0xDEAD_C0DE     // “Words” (2 bytes)
+          </code></pre>
+          <!-- Babel 7, FF70, Cr75, Saf13, Edge 79, Node 12.5 -->
         </section>
 
         <section id="top-level-await">
@@ -480,7 +478,7 @@ const christophe = {
 
           <p>Already in Node REPL, Chromium DevTools console, Safari Web Inspector console.</p>
 
-          <!-- v8/flag, Webpack 5 experimental, FIXME UPDATE -->
+          <!-- v8/flag, Webpack 5 experimental -->
         </section>
 
         <section id="class-novelties">
@@ -506,9 +504,9 @@ const christophe = {
             }
           </code></pre>
 
-          <!-- Priv: Babel, v8/flag, JSC/review, XS, QuickJS, FIXME UPDATE -->
-          <!-- IC: Babel, Node 12 / v8/7.2-7.4, Fx69, XS, QuickJS, FIXME UPDATE -->
-          <!-- Stat: Babel, v8/ongoing, JSC/review, XS, QuickJS, FIXME UPDATE -->
+          <!-- Priv: Babel, v8/7.9, JSC/review, XS, QuickJS -->
+          <!-- IC: Babel, Node 12 / v8/7.2-7.4, Fx69, Edge 79, XS, QuickJS -->
+          <!-- Stat: Babel, v8/7.9, Edge 79, JSC/review, XS, QuickJS -->
         </section>
 
         <section id="decorators">
@@ -542,7 +540,19 @@ const christophe = {
           <p>Immutable, nanosecond-precise, has all TZ, distinguishes absolute vs. local, explicit…</p>
           <p>Great complement to <code>Intl</code> and its formatting functions.</p>
 
-          <!-- FIXME: COOL EXAMPLES FROM MAGGIE'S TALK! -->
+          <pre><code class="language-js">
+            const meeting1 = Temporal.Date.from('2020-01-01')
+            const meeting2 = Temporal.Date.from('2020-04-01')
+            const time = Temporal.Time.from('10:00:00')
+            const timeZone = new Temporal.TimeZone('America/Montreal')
+
+            const absolute1 = timeZone.getAbsoluteFor(meeting1.withTime(time))
+            // => 2020-01-01T15:00:00.000Z
+            const absolute2 = timeZone.getAbsoluteFor(meeting2.withTime(time))
+            // => 2020-01-01T14:00:00.000Z
+          </code></pre>
+
+          <p>Check out <a href="https://www.dotconferences.com/2019/12/maggie-johnson-pint-making-time-make-sense">Maggie’s awesome talk at dotJS 2019</a>!</p>
         </section>
 
         <section id="functional-programming">
